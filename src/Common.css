@@ -1,0 +1,27 @@
+:root {
+    --color-main: rgb(0, 255, 136);
+    --color-gray: rgb(175, 175, 175);
+    --shadow: 0 0 20px -10px black;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#App {
+    background-color: rgb(44, 44, 44);
+    min-height: 100vh;
+    color: white;
+}
+
+.button {
+    height: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 5px 15px;
+    background-color: var(--color-main);
+}

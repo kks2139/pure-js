@@ -1,0 +1,16 @@
+.box {
+    display: flex;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+.box .input {
+    border: 2px solid black;
+    width: 500px;
+    height: 30px;
+    font-size: 25px;
+    padding: 5px 15px;
+}
+.box .input::placeholder {
+    color: var(--color-gray);
+}
