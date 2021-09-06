@@ -1,5 +1,5 @@
-import SearchBar from "./SearchBar";
-import SearchList from "./SearchList";
+import SearchBar from "./SearchBar.js";
+import SearchList from "./SearchList.js";
 
 export {
     SearchBar,

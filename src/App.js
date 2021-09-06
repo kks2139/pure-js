@@ -1,30 +1,16 @@
 import {SearchResultPage} from './pages/index.js';
 import UT from './utils/util.js';
 
-let Root = null;
 
-function App(root){
-    Root = root;
+class App{
+    Root = null;
 
-    Root.innerHTML = '<div>시작</div>';
-
-    const render = (page)=>{
-        while(root.hasChildNodes()){
-            root.removeChild(root.firstChild);
-        }
-        if(!page || page === 'list'){
-            root.appendChild(SearchResultPage());
-        }else if(page === 'detail'){
-            
-        }else{
-
-        }
-
+    constructor(targ){
+        this.Root = targ;
+        this.SearchResultPage = new SearchResultPage({
+            targ : this.Root
+        });
     }
 }
-
-// function getStaffList(){
-//     staffList = UT.request('mock.json');
-// }
 
 export default App; 

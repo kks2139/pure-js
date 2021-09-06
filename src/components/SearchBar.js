@@ -1,26 +1,29 @@
 import './SearchBar.module.css';
 
-function SearchBar({onSearch}){
-    const box = document.createElement('div');
-    box.classList.add('.box');
+class SearchBar{
+    constructor({targ, onSearch}){
+        this.Root = document.createElement('div');
+        this.Root.classList.add('box');
 
-    const onKeydown = (e)=>{
+        targ.appendChild(this.Root);
+    }
+
+    onKeydown(e){
         if(e.keyCode === 13){
-            onClickSearch(e.currentTarget.value);
+            this.onClickSearch(e.currentTarget.value);
         }
     }
 
-    const onClickSearch = (text)=>{
-        onSearch(text);
+    onClickSearch(e){
+        onSearch(e.currentTarget.value);
     }
 
-    const html = `
-        <input class='input' onkeydown='onKeydown' placeholder='First name Or Last name'></input>
-        <div class='button' onclick='onClickSearch'></div>
-    `;
-
-    box.innerHTML = html;
-    return box;
+    render(){
+        this.Root.innerHTML = `
+            <input class='input' onkeydown='onKeydown' placeholder='First name Or Last name'></input>
+            <div class='button' onclick='onClickSearch'></div>
+        `;    
+    }
 }   
 
 export default SearchBar;

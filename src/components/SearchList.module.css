@@ -1,3 +1,12 @@
 .box {
-    
+    display: flex;
+    justify-content: center;
+}
+
+.box .row {
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    height: 20px;
+    font-size: 20px;
 }

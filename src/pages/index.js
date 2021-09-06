@@ -1,5 +1,5 @@
-import SearchResultPage from "./SearchResultPage";
-import DetailInfo from "./DetailInfo";
+import SearchResultPage from "./SearchResultPage.js";
+import DetailInfo from "./DetailInfo.js";
 
 export {
     SearchResultPage,

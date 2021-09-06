@@ -1,5 +1,6 @@
 :root {
-    --color-main: rgb(0, 255, 136);
+    --color-main: rgb(0, 226, 121);
+    --color-dark-main: rgb(0, 153, 82);
     --color-gray: rgb(175, 175, 175);
     --shadow: 0 0 20px -10px black;
 }
@@ -24,4 +25,9 @@ body {
     font-size: 20px;
     padding: 5px 15px;
     background-color: var(--color-main);
+    transition: .2s;
+}
+
+.button:hover {
+    background-color: var(--color-dark-main);
 }

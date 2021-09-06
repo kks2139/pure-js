@@ -1,21 +1,30 @@
 import {SearchBar, SearchList} from '../components/index.js';
 import UT from './utils/util.js';
+import './SearchResultPage.module.css';
 
-let staffList = [];
 
-function SearchResultPage(){
-    const box = document.createElement('div');
-    box.classList.add('box');
+class SearchResultPage{
+    staffList = [];
 
-    const getList = async ()=> await UT.request('mock.json');
-    
-    staffList = getList();
-    
-    const onSearch = (text)=>{
-        getNewList(text);
+    constructor({targ}){
+        this.Root = document.createElement('div');
+        this.Root.classList.add('box');
+
+        this.SearchBar = new SearchBar({
+            targ: this.Root,
+            onSearch: this.onSearch
+        });
+        
+        this.SearchList = new SearchList({
+            targ: this.Root,
+            list: this.staffList
+        });
+
+        targ.appenChild(Root);
+        this.render();
     }
     
-    const getNewList = (text)=>{
+    onSearch(text){
         if(text){
             staffList = getList();
         }else{
@@ -23,19 +32,11 @@ function SearchResultPage(){
                 return first_name.indexOf(text) > -1 || last_name.indexOf(text) > -1;
             });
         }
-        render();
+        this.SearchList.setState(this.staffList);
     }
 
-    const render = ()=>{
-        while(box.hasChildNodes()){
-            box.removeChild(box.firstChild);
-        }
-        box.appendChild(SearchBar({
-            onSearch
-        }));
-        box.appendChild(SearchList({
-            items: staffList
-        }));
+    async getList(){
+        return await UT.request('mock.json');
     }
 }
 

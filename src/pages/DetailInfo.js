@@ -1,7 +1,7 @@
+class DetailInfo{
+    constructor(){
 
-
-function DetailInfo(){
-
+    }
 }
 
 export default DetailInfo;
