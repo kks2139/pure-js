@@ -1,28 +1,37 @@
-import './SearchBar.module.css';
+import style from './SearchBar.module.scss';
 
 class SearchBar{
+    Root = null;
+    onSearch = null;
+
     constructor({targ, onSearch}){
         this.Root = document.createElement('div');
-        this.Root.classList.add('box');
-
+        this.Root.className = style.box;
         targ.appendChild(this.Root);
+
+        this.onSearch = onSearch;
+
+        this.render();
     }
 
-    onKeydown(e){
+    onKeyup = (e)=>{
         if(e.keyCode === 13){
             this.onClickSearch(e.currentTarget.value);
         }
     }
 
-    onClickSearch(e){
-        onSearch(e.currentTarget.value);
+    onClickSearch = ()=>{
+        const text = this.Root.querySelector('[name=text]');
+        this.onSearch(text);
     }
 
-    render(){
+    render = ()=>{
         this.Root.innerHTML = `
-            <input class='input' onkeydown='onKeydown' placeholder='First name Or Last name'></input>
-            <div class='button' onclick='onClickSearch'></div>
+            <input class='field' name='text' placeholder='First name Or Last name'></input>
+            <div class='button'>검색</div>
         `;    
+        this.Root.querySelector('input').onkeyup = this.onKeyup;
+        this.Root.querySelector('.button').onclick = this.onClickSearch;
     }
 }   
 

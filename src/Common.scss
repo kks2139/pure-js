@@ -1,16 +1,21 @@
 :root {
-    --color-main: rgb(0, 226, 121);
+    --color-main: rgb(2, 231, 124);
     --color-dark-main: rgb(0, 153, 82);
     --color-gray: rgb(175, 175, 175);
+    --radius: 7px;
     --shadow: 0 0 20px -10px black;
 }
 
-body {
-    margin: 0;
+*, *:focus, *:hover{
+    outline:none;
 }
 
 * {
     box-sizing: border-box;
+}
+
+body {
+    margin: 0;
 }
 
 #App {
@@ -20,14 +25,18 @@ body {
 }
 
 .button {
+    display: flex;
+    align-items: center;
+    width: fit-content;
     height: 30px;
     font-weight: bold;
     font-size: 20px;
     padding: 5px 15px;
+    border-radius: var(--radius);
     background-color: var(--color-main);
     transition: .2s;
-}
-
-.button:hover {
-    background-color: var(--color-dark-main);
+    cursor: pointer;
+    &:hover {
+        background-color: var(--color-dark-main);
+    }
 }

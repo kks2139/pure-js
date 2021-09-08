@@ -1,21 +1,23 @@
 import './SearchList.module.css';
 
 class SearchList{
+    Root = null;
     data = [];
+
     constructor({targ, list}){
         this.data = list;
         this.Root = document.createElement('div');
         this.Root.classList.add('box');
 
-        targ.appendChild(targ);
+        targ.appendChild(this.Root);
     }
 
-    setState(newData){
+    setState = (newData)=>{
         this.data = newData;
         this.render();
     }
 
-    render(){
+    render = ()=>{
         this.Root.innerHTML = this.data.map(d => (`
             <div class='row'>
                 <div>${d.id}</div>                        

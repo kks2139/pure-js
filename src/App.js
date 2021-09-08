@@ -1,5 +1,6 @@
 import {SearchResultPage} from './pages/index.js';
 import UT from './utils/util.js';
+import './Common.scss';
 
 
 class App{
