@@ -5,7 +5,7 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 module.exports = {
     mode : 'none', // 모드설정 : 개발용 or 프로덕션. none == 개발, 프덕 중 아무것도아님
     entry : { // 서로 연결되있는 여러 모듈들의 처음 시작점이되는 파일을 알려줌
-        bundle : './src/index.js'
+        bundle : './src/index.js',
     }, 
     output : { // 여러개의 모듈들을 하나로 묶어서 만든 결과물 파일에 대한 설정
         publicPath: '/', 
@@ -16,7 +16,7 @@ module.exports = {
         static : path.resolve(__dirname + '/build'), // contentBase --> static 으로 바뀜..
         port : 5000
     },
-    resolve : {
+    resolve : { // import ... from 파일명.js 처럼 import 시에 파일 확장자(.js)를 안붙여도 인식할 수 있게 해준다.
         // extensions : ['js']
     },
     module : {
@@ -30,7 +30,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
                 exclude: /node_modules/
-            }
+            },
         ]
     },
     devtool: 'cheap-module-source-map', // 압축된 번들파일을 개발자도구에서 원본 소스로 보여주는 기능. 디버깅이 가능해진다.. (웹팩 소스맵 구글링 ㄱㄱ)

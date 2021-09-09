@@ -1,3 +1,5 @@
+import mock from '../mock/mock.json'; 
+
 const UT = {
     request : async (api)=>{
         const result = await fetch(api);
@@ -9,6 +11,12 @@ const UT = {
         }catch(ex){
             alert(ex);
         }
+    },
+    getList : (keyword)=>{
+        return keyword ? mock.filter(d => (
+            d.first_name.indexOf(keyword) > -1 ||
+            d.last_name.indexOf(keyword) > -1
+        )) : mock.slice();
     }
 }
 

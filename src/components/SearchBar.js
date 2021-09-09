@@ -1,4 +1,4 @@
-import style from './SearchBar.module.scss';
+import style from './Component.module.scss';
 
 class SearchBar{
     Root = null;
@@ -6,7 +6,8 @@ class SearchBar{
 
     constructor({targ, onSearch}){
         this.Root = document.createElement('div');
-        this.Root.className = style.box;
+        this.Root.className = style.SearchBar;
+        console.log(style);
         targ.appendChild(this.Root);
 
         this.onSearch = onSearch;
@@ -21,13 +22,13 @@ class SearchBar{
     }
 
     onClickSearch = ()=>{
-        const text = this.Root.querySelector('[name=text]');
+        const text = this.Root.querySelector('[name=text]').value;
         this.onSearch(text);
     }
 
     render = ()=>{
         this.Root.innerHTML = `
-            <input class='field' name='text' placeholder='First name Or Last name'></input>
+            <input class='txt' name='text' placeholder='First name or Last name'></input>
             <div class='button'>검색</div>
         `;    
         this.Root.querySelector('input').onkeyup = this.onKeyup;

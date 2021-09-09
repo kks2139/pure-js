@@ -1,7 +1,5 @@
 import {SearchBar, SearchList} from '../components/index.js';
 import UT from '../utils/util.js';
-import './SearchResultPage.module.css';
-
 
 class SearchResultPage{
     Root = null;
@@ -25,19 +23,13 @@ class SearchResultPage{
         this.render();
     }
     
-    onSearch = async (text)=>{
+    onSearch = (text)=>{
         if(text){
-            this.staffList = await this.getList();
+            this.staffList = UT.getList(text);
         }else{
-            this.staffList = this.staffList.filter(({first_name, last_name}) =>{
-                return first_name.indexOf(text) > -1 || last_name.indexOf(text) > -1;
-            });
+            this.staffList = UT.getList();
         }
         this.SearchList.setState(this.staffList);
-    }
-
-    getList = ()=>{
-        return UT.request('mock.json');
     }
 
     render = ()=>{
