@@ -24,13 +24,26 @@
         .wrapper {
             box-shadow: 0 10px 20px -5px black;
             .header {
-                text-align: center;
                 font-weight: bold;
                 color: white;
                 background-color: var(--color-dark-gray) !important;
                 border-top: 1px solid white;
-                > div:hover {
-                    background-color: gray;
+                > div {
+                    display: flex;
+                    justify-content: center;
+                    &:hover {
+                        background-color: gray;
+                    }
+                    div.arrow {
+                        display: none;
+                        margin-left: 5px;
+                        transform-origin: (10px, 10px);
+                    }
+                    div.arrow.show {
+                        display: unset;
+                    }
+                    .up {transform: rotate(0deg);}
+                    .down {transform: rotate(180deg);}
                 }
             }
             .row {
@@ -43,21 +56,6 @@
                 > div {
                     transition: .2s;
                     padding: 8px 15px;
-                }
-                .fn {
-                    width: 160px;
-                }
-                .ln {
-                    width: 160px;
-                }
-                .gd {
-                    width: 90px;
-                }
-                .ag {
-                    width: 60px;
-                }
-                .em {
-                    flex-grow: 1;
                 }
             }
             .row:not(.header) {

@@ -12,10 +12,10 @@ const UT = {
             alert(ex);
         }
     },
-    getList : (keyword)=>{
+    getList : (keyword='')=>{
         return keyword ? mock.filter(d => (
-            d.first_name.indexOf(keyword) > -1 ||
-            d.last_name.indexOf(keyword) > -1
+            d.first_name.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ||
+            d.last_name.toLowerCase().indexOf(keyword.toLowerCase()) > -1
         )) : mock.slice();
     }
 }

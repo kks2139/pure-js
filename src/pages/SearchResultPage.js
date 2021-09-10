@@ -16,7 +16,14 @@ class SearchResultPage{
         
         this.SearchList = new SearchList({
             targ: this.Root,
-            list: this.staffList
+            list: this.staffList,
+            listInfo: [
+                {header: 'First name', field: 'first_name', width: '160px', type: 'string'},
+                {header: 'Last Name', field: 'last_name', width: '160px', type: 'string'},
+                {header: 'Gender', field: 'gender', width: '90px', type: 'string'},
+                {header: 'Age', field: 'age', width: '60px', type: 'number'},
+                {header: 'Email', field: 'email', width: '', type: 'string'}
+            ]
         });
 
         targ.appendChild(this.Root);
@@ -24,11 +31,7 @@ class SearchResultPage{
     }
     
     onSearch = (text)=>{
-        if(text){
-            this.staffList = UT.getList(text);
-        }else{
-            this.staffList = UT.getList();
-        }
+        this.staffList = UT.getList(text);
         this.SearchList.setState(this.staffList);
     }
 
