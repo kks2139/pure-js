@@ -30,8 +30,15 @@ class SearchResultPage{
         this.render();
     }
     
-    onSearch = (text)=>{
-        this.staffList = UT.getList(text);
+    onSearch = async (text='')=>{
+        this.staffList = await UT.request();
+        if(text){
+            text = text.toLowerCase();
+            this.staffList = this.staffList.filter(d => (
+                d.first_name.toLowerCase().indexOf(text) > -1 ||
+                d.last_name.toLowerCase().indexOf(text) > -1 
+            ));
+        }
         this.SearchList.setState(this.staffList);
     }
 

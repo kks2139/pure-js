@@ -1,8 +1,13 @@
-import mock from '../mock/mock.json'; 
+import {Loading} from '../components/index.js';
 
 const UT = {
-    request : async (api)=>{
-        const result = await fetch(api);
+    request : async (keyword='')=>{
+        const url = 'https://my.api.mockaroo.com/users.json?key=9e0801a0';
+        const Load = new Loading({
+            targ: document.querySelector('#App'),
+        });
+        const result = await fetch(url + keyword);
+        // Load.hide();
         try{
             if(result.status !== 200){
                 throw new Error('문제가 발생하였습니다!');
@@ -12,12 +17,6 @@ const UT = {
             alert(ex);
         }
     },
-    getList : (keyword='')=>{
-        return keyword ? mock.filter(d => (
-            d.first_name.toLowerCase().indexOf(keyword.toLowerCase()) > -1 ||
-            d.last_name.toLowerCase().indexOf(keyword.toLowerCase()) > -1
-        )) : mock.slice();
-    }
 }
 
 export default UT;

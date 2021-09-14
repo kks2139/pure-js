@@ -1,4 +1,5 @@
 import style from './Component.module.scss';
+import {Loading} from './index.js';
 
 class SearchList{
     Root = null;

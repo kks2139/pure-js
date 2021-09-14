@@ -68,3 +68,49 @@
         }
     }
 }
+
+.Loading {
+    display: flex;
+    justify-content: center;
+    :global {
+        .modal {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .dots {
+            z-index: 101;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 40%;
+            width: 120px;
+            height: 120px;
+            border: 2px solid yellow;
+            // animation-name: rotate;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            > div {
+                position: absolute;
+                top: 0;
+                width: 15px;
+                height: 15px;
+                background-color: var(--color-main);
+                border-radius: 50px;
+            }
+            .d1 {transform: rotate(calc(45 * 1)deg);}
+            .d2 {transform: rotate(calc(45 * 2)deg);}
+            .d3 {transform: rotate(calc(45 * 3)deg);}
+            .d4 {transform: rotate(calc(45 * 4)deg);}
+            .d5 {transform: rotate(calc(45 * 5)deg);}
+            .d6 {transform: rotate(calc(45 * 6)deg);}
+            .d7 {transform: rotate(calc(45 * 7)deg);}
+            .d8 {transform: rotate(calc(45 * 8)deg);}
+        }
+    }
+}
