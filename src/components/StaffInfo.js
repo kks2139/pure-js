@@ -1,11 +1,13 @@
 import style from './Component.module.scss';
 
-class Loading {
+class StaffInfo{
     Root = null;
+    data = null;
 
-    constructor({targ}){
+    constructor({targ, info}){
+        this.data = info;
         this.Root = document.createElement('div');
-        this.Root.className = style.Loading;
+        this.Root.className = style.StaffInfo;
         targ.appendChild(this.Root);
     }
 
@@ -19,13 +21,9 @@ class Loading {
 
     render = ()=>{
         this.Root.innerHTML = `
-            <div class='modal'></div>
-            <div class='content'>
-                <div class='txt'>Loading...</div>
-                <div class='turn'>⚙</div>
-            </div>
+
         `;
     }
-}
+} 
 
-export default Loading;
+export default StaffInfo;

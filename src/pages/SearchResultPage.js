@@ -1,4 +1,5 @@
-import {SearchBar, SearchList} from '../components/index.js';
+import {SearchBar, StaffList, StaffInfo} from '../components/index.js';
+import style from './Page.module.scss';
 import UT from '../utils/util.js';
 
 class SearchResultPage{
@@ -7,27 +8,14 @@ class SearchResultPage{
 
     constructor({targ}){
         this.Root = document.createElement('div');
-        this.Root.classList.add('box');
-
-        this.SearchBar = new SearchBar({
-            targ: this.Root,
-            onSearch: this.onSearch
-        });
-        
-        this.SearchList = new SearchList({
-            targ: this.Root,
-            list: this.staffList,
-            listInfo: [
-                {header: 'First name', field: 'first_name', width: '160px', type: 'string'},
-                {header: 'Last Name', field: 'last_name', width: '160px', type: 'string'},
-                {header: 'Gender', field: 'gender', width: '90px', type: 'string'},
-                {header: 'Age', field: 'age', width: '60px', type: 'number'},
-                {header: 'Email', field: 'email', width: '', type: 'string'}
-            ]
-        });
-
+        this.Root.className = style.SearchResultPage;
         targ.appendChild(this.Root);
+
         this.render();
+    }
+
+    onClickData = (arg)=>{
+
     }
     
     onSearch = async (text='')=>{
@@ -39,11 +27,25 @@ class SearchResultPage{
                 d.last_name.toLowerCase().indexOf(text) > -1 
             ));
         }
-        this.SearchList.setState(this.staffList);
+        this.StaffList.setState(this.staffList);
     }
 
     render = ()=>{
-
+        this.Root.innerHTML = `
+            <div class='wrapper'></div>
+        `;
+        const wrapper = this.Root.querySelector('.wrapper');
+        this.SearchBar = new SearchBar({
+            targ: wrapper,
+            onSearch: this.onSearch
+        });
+        this.StaffList = new StaffList({
+            targ: wrapper,
+            onClickData: this.onClickData
+        });
+        this.StaffInfo = new StaffInfo({
+            targ: wrapper
+        });
     }
 }
 

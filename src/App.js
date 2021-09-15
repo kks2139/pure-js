@@ -1,5 +1,5 @@
 import {SearchResultPage} from './pages/index.js';
-import UT from './utils/util.js';
+import {Loading} from './components/index.js';
 import './Common.scss';
 
 class App{
@@ -7,11 +7,17 @@ class App{
 
     constructor(targ){
         this.Root = targ;
-        
+        this.render();
+    }
+
+    render = ()=>{
+        this.Root.innerHTML = ``;
         this.SearchResultPage = new SearchResultPage({
             targ: this.Root
+        });        
+        window.LoadingMask = new Loading({
+            targ: this.Root
         });
-
     }
 }
 

@@ -1,9 +1,13 @@
 import SearchBar from "./SearchBar.js";
-import SearchList from "./SearchList.js";
+import StaffList from "./StaffList.js";
+import Staff from "./Staff.js";
 import Loading from "./Loading.js";
+import StaffInfo from "./StaffInfo.js";
 
 export {
     SearchBar,
-    SearchList,
-    Loading
+    StaffList,
+    Staff,
+    Loading,
+    StaffInfo
 }

@@ -17,13 +17,22 @@
     }
 }
 
-.SearchList {
+.StaffList {
     display: flex;
     justify-content: center;
     :global {
         .wrapper {
+            width: 800px;
             box-shadow: 0 10px 20px -5px black;
+            .info {
+                height: 30px;
+                display: flex;
+                justify-content: flex-start;
+                font-weight: bold;
+            }
             .header {
+                display: flex;
+                height: 35px;
                 font-weight: bold;
                 color: white;
                 background-color: var(--color-dark-gray) !important;
@@ -31,6 +40,7 @@
                 > div {
                     display: flex;
                     justify-content: center;
+                    align-items: center;
                     &:hover {
                         background-color: gray;
                     }
@@ -45,25 +55,39 @@
                     .up {transform: rotate(0deg);}
                     .down {transform: rotate(180deg);}
                 }
+                .fn {width: 160px;}
+                .ln {width: 160px;}
+                .gd {width: 90px;}
+                .ag {width: 60px;}
+                .em {flex-grow: 1;}
             }
-            .row {
-                display: flex;
-                border-bottom: 1px solid white;
-                background-color: rgb(46, 46, 46);
-                width: 800px;
+        }
+    }
+}
+
+.Staff {
+    :global {
+        .row {
+            display: flex;
+            border-bottom: 1px solid white;
+            background-color: rgb(46, 46, 46);
+            transition: .2s;
+            cursor: pointer;
+            > div {
                 transition: .2s;
-                cursor: pointer;
-                > div {
-                    transition: .2s;
-                    padding: 8px 15px;
-                }
+                padding: 8px 15px;
             }
-            .row:not(.header) {
-                &:hover {
-                    border-radius: var(--radius);
-                    transform: translateY(-5px);
-                    box-shadow: 0 0 0 3px var(--color-main);
-                }
+            .fn {width: 160px;}
+            .ln {width: 160px;}
+            .gd {width: 90px;}
+            .ag {width: 60px;}
+            .em {flex-grow: 1;}
+        }
+        .row:not(.header) {
+            &:hover {
+                border-radius: var(--radius);
+                transform: translateY(-5px);
+                box-shadow: 0 0 0 3px var(--color-main);
             }
         }
     }
@@ -73,44 +97,39 @@
     display: flex;
     justify-content: center;
     :global {
-        .modal {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-        .dots {
+        .content {
             z-index: 101;
-            display: flex;
-            justify-content: center;
             position: absolute;
-            top: 40%;
-            width: 120px;
-            height: 120px;
-            border: 2px solid yellow;
-            // animation-name: rotate;
-            animation-duration: 2s;
-            animation-timing-function: linear;
-            animation-iteration-count: infinite;
-            > div {
-                position: absolute;
-                top: 0;
-                width: 15px;
-                height: 15px;
-                background-color: var(--color-main);
-                border-radius: 50px;
+            top: 45%;
+            display: flex;
+            justify-content: space-between;
+            width: 250px;
+            font-weight: bold;
+            background-color: rgba(0, 0, 0, 0.9);
+            border-radius: var(--radius);
+            padding: 20px 30px;
+            .txt {
+                line-height: 60px;
+                font-size: 30px;
             }
-            .d1 {transform: rotate(calc(45 * 1)deg);}
-            .d2 {transform: rotate(calc(45 * 2)deg);}
-            .d3 {transform: rotate(calc(45 * 3)deg);}
-            .d4 {transform: rotate(calc(45 * 4)deg);}
-            .d5 {transform: rotate(calc(45 * 5)deg);}
-            .d6 {transform: rotate(calc(45 * 6)deg);}
-            .d7 {transform: rotate(calc(45 * 7)deg);}
-            .d8 {transform: rotate(calc(45 * 8)deg);}
+            .turn {
+                font-size: 50px;
+                animation-name: rotate;
+                animation-duration: 2s;
+                animation-timing-function: linear;
+                animation-iteration-count: infinite;
+            }
         }
+    }
+}
+
+.StaffInfo {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1000px;
+    height: 100%;
+    :global {
+        
     }
 }
