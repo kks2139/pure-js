@@ -1,4 +1,4 @@
-import {SearchBar, StaffList, StaffInfo} from '../components/index.js';
+import {SearchBar, StaffList} from '../components/index.js';
 import style from './Page.module.scss';
 import UT from '../utils/util.js';
 
@@ -6,7 +6,8 @@ class SearchResultPage{
     Root = null;
     staffList = [];
 
-    constructor({targ}){
+    constructor({targ, route}){
+        this.route = route;
         this.Root = document.createElement('div');
         this.Root.className = style.SearchResultPage;
         targ.appendChild(this.Root);
@@ -15,7 +16,7 @@ class SearchResultPage{
     }
 
     onClickData = (arg)=>{
-
+        this.route({path: '/detail'});
     }
     
     onSearch = async (text='')=>{
@@ -42,9 +43,6 @@ class SearchResultPage{
         this.StaffList = new StaffList({
             targ: wrapper,
             onClickData: this.onClickData
-        });
-        this.StaffInfo = new StaffInfo({
-            targ: wrapper
         });
     }
 }

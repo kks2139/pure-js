@@ -11,6 +11,14 @@
     outline:none;
 }
 
+div {
+    -ms-user-select: none;
+    -moz-user-select: -moz-none; 
+    -webkit-user-select: none; 
+    -khtml-user-select: none; 
+    user-select:none;
+}
+
 * {
     box-sizing: border-box;
 }

@@ -21,7 +21,7 @@ class StaffInfo{
 
     render = ()=>{
         this.Root.innerHTML = `
-
+            Staff Info !!!!!
         `;
     }
 } 

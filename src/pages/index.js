@@ -1,7 +1,7 @@
 import SearchResultPage from "./SearchResultPage.js";
-import DetailInfo from "./DetailInfo.js";
+import DetailPage from "./DetailPage.js";
 
 export {
     SearchResultPage,
-    DetailInfo
+    DetailPage
 }
