@@ -3,7 +3,6 @@ import style from './Page.module.scss';
 import UT from '../utils/util.js';
 
 class SearchResultPage{
-    Root = null;
     staffList = [];
 
     constructor({targ, route}){
@@ -15,8 +14,11 @@ class SearchResultPage{
         this.render();
     }
 
-    onClickData = (arg)=>{
-        this.route({path: '/detail'});
+    onClickData = (data)=>{
+        this.route({
+            path: '/detail', 
+            state: data
+        });
     }
     
     onSearch = async (text='')=>{
@@ -33,16 +35,16 @@ class SearchResultPage{
 
     render = ()=>{
         this.Root.innerHTML = `
-            <div class='wrapper'></div>
+            <div class='content'></div>
         `;
-        const wrapper = this.Root.querySelector('.wrapper');
+        const content = this.Root.querySelector('.content');
         this.SearchBar = new SearchBar({
-            targ: wrapper,
+            targ: content,
             onSearch: this.onSearch
         });
         this.StaffList = new StaffList({
-            targ: wrapper,
-            onClickData: this.onClickData
+            targ: content,
+            onClickData: this.onClickData,
         });
     }
 }

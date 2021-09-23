@@ -1,10 +1,6 @@
 import style from './Component.module.scss';
 
 class Staff {
-    Root = null;
-    data = null;
-    onClickRow = null;
-
     constructor({targ, staffInfo, onClickRow}){
         this.data = staffInfo;
         this.onClickRow = onClickRow;

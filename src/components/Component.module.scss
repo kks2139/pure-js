@@ -125,12 +125,35 @@
 }
 
 .StaffInfo {
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1000px;
-    height: 100%;
     :global {
-        
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img {
+                width: 300px;
+                border-radius: 50%;
+                box-shadow: 0 0 40px 0px var(--color-main);
+                margin: 50px 0;
+            }
+            > div {
+                display: flex;
+                width: 600px;
+                font-weight: bold;
+                font-size: 16px;
+                margin-bottom: 10px;
+                padding: 5px 10px;
+                border-bottom: 1px solid var(--color-main);
+                .txt {
+                    width: 100px;
+                    border-right: 1px solid var(--color-dark-gray);
+                }
+                .val {
+                    display: flex;
+                    flex-grow: 1;
+                    padding-left: 30px;
+                }
+            }
+        }                  
     }
 }

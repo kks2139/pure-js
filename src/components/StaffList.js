@@ -2,10 +2,6 @@ import style from './Component.module.scss';
 import {Staff} from './index.js';
 
 class StaffList{
-    Root = null;
-    data = [];
-    onClickData = null;
-
     constructor({targ, onClickData}){
         this.onClickData = onClickData;
         this.Root = document.createElement('div');
@@ -13,8 +9,8 @@ class StaffList{
         targ.appendChild(this.Root);
     }
 
-    onClickRow = (arg)=>{
-        this.onClickData(arg);
+    onClickRow = (data)=>{
+        this.onClickData(data);
     }
 
     onClickHeader = (e)=>{

@@ -1,11 +1,25 @@
 .SearchResultPage {
     :global {
-        
+        .content {
+
+        }
     }
 }
 
 .DetailPage {
+    padding: 15px;
     :global {
-        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 7px 15px;
+            .tit {
+                font-weight: bold;
+                font-size: 22px;
+            }
+        }
+        .content {
+
+        }
     }
 }
